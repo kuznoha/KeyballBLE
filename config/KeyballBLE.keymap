@@ -22,6 +22,12 @@
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <20 21>;
         };
+
+        del {
+            bindings = <&kp DEL>;
+            key-positions = <40 41>;
+            timeout-ms = <1>;
+        };
     };
 
     macros {
@@ -58,10 +64,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W      &kp E         &kp R                           &kp T                                                    &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S      &kp D         &kp F                           &kp G             &mkp LCLK                   &mkp LCLK  &kp H        &kp J  &kp K      &kp L    &kp MINUS
-&mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                           &kp B             &mkp RCLK                   &mkp RCLK  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LEFT_SHIFT    &kp LCTRL  &kp LEFT_ALT  &lt_to_layer_0 1 LANG_HIRAGANA  &lt 2 LANGUAGE_5  &lt_to_layer_0 3 SPACE      &kp DEL    &lt 6 ENTER                             &kp LEFT_WIN
+&kp Q             &kp W      &kp E         &kp R                           &kp T                                                        &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S      &kp D         &kp F                           &kp G             &mkp LCLK                   &mkp LCLK      &kp H        &kp J  &kp K      &kp L    &kp MINUS
+&mt LEFT_SHIFT Z  &kp X      &kp C         &kp V                           &kp B             &mkp RCLK                   &mkp RCLK      &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LEFT_SHIFT    &kp LCTRL  &kp LEFT_ALT  &lt_to_layer_0 1 LANG_HIRAGANA  &lt 2 LANGUAGE_5  &lt_to_layer_0 3 SPACE      &kp BACKSPACE  &lt 6 ENTER                             &kp LEFT_WIN
             >;
 
             sensor-bindings = <&ROTATE SCRL_DOWN SCRL_UP>;
@@ -69,10 +75,10 @@
 
         FUNCTION {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                       &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
-&trans  &trans  &trans  &trans  &trans  &trans      &kp F13  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans  &trans  &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &kp F12
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5                       &kp NUMBER_6  &kp N7  &kp NUMBER_8  &kp NUMBER_9  &kp N0
+&trans        &trans        &trans        &trans        &trans  &trans      &kp F13  &kp F6        &kp F7  &kp F8        &kp F9        &kp F10
+&trans        &trans        &trans        &trans        &trans  &trans      &trans   &trans        &trans  &trans        &trans        &kp F11
+&trans        &trans        &trans        &trans        &trans  &trans      &trans   &trans                                            &kp F12
             >;
         };
 
