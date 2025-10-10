@@ -28,6 +28,16 @@
             key-positions = <40 41>;
             timeout-ms = <1>;
         };
+
+        copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <34 22>;
+        };
+
+        peast {
+            bindings = <&kp LC(V)>;
+            key-positions = <34 23>;
+        };
     };
 
     macros {
