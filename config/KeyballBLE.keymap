@@ -32,6 +32,7 @@
         copy {
             bindings = <&kp LC(C)>;
             key-positions = <34 22>;
+            layers = <2>;
         };
 
         peast {
