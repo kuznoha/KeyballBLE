@@ -15,9 +15,11 @@
 };
 
 / {
+    /* ここで「動き」を加工する設定を追加しました */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_xy_scaler 1 (-1)>; 
     };
 };
 
@@ -58,6 +60,6 @@
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         zephyr,axis-x = <1>;
         zephyr,axis-y = <0>;
-        zephyr,axis-inverted-y;
+        /* エラーの原因だった axis-inverted-y は削除しました */
     };
 };
