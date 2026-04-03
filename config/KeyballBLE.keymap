@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20 
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -31,19 +31,10 @@
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
-            bindings = <&mo &to_layer_0>;  // カンマを削除しました
+            bindings = <&mo>, <&to_layer_0>; // ここはカンマが必要です
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-        };
-
-        ROTATE: ROTATE {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            label = "ROTATE";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc &msc>;        // カンマを削除しました
-
-            tap-ms = <20>;
         };
     };
 
@@ -58,7 +49,8 @@
 &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt_to_layer_0 1 TAB  &lt 2 LEFT_CONTROL  &lt_to_layer_0 3 SPACE      &kp BACKSPACE  &kp RETURN                             &lt 6 LEFT_WIN
             >;
 
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            // 標準的なマウススクロールに変更してエラーを回避します
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
         FUNCTION {
@@ -68,7 +60,7 @@
 &trans        &kp LC(X)     &kp LC(C)     &kp LC(V)     &trans  &trans      &trans  &trans        &trans  &trans        &trans        &kp F11
 &trans        &trans        &trans        &trans        &trans  &trans      &trans  &trans                                            &kp F12
             >;
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
         NUM {
@@ -78,7 +70,7 @@
 &ext_power EP_ON  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3   &kp PERIOD    &kp EQUAL                    &kp UNDER     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
 &trans            &trans            &kp PRINTSCREEN  &kp INT_MUHENKAN  &trans        &kp INT_KANA                 &trans        &trans                                                                     &kp SLASH
             >;
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
         ARROW {
@@ -88,7 +80,6 @@
 &kp LC(C)   &kp LC(V)       &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans    &trans    &trans        &trans         &trans
 &trans      &trans          &trans          &trans                    &trans   &trans      &trans  &trans                                            &trans
             >;
-
             sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
@@ -99,7 +90,7 @@
 &trans  &trans  &trans  &trans  &trans  &mkp LCLK      &mkp RCLK  &trans     &trans     &trans     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans     &trans                                      &trans
             >;
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
         SCROLL {
@@ -109,7 +100,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &msc MOVE_Y(15)
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
 
         layer_6 {
@@ -119,7 +110,7 @@
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kt KP_N4  &trans      &bootloader     &trans        &trans        &msc MOVE_X(20)  &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans        &trans      &trans          &trans                                                      &bt BT_CLR_ALL
             >;
-            sensor-bindings = <&ROTATE MOVE_Y(-15) MOVE_Y(15)>;
+            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
         };
     };
-};　
+};
