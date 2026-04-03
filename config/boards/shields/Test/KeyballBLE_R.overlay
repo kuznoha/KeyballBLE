@@ -1,5 +1,4 @@
 #include "KeyballBLE.dtsi"
-/* ↓ 軸の入れ替え機能を使うために必要な一行です */
 #include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
@@ -18,13 +17,19 @@
 };
 
 / {
-    /* トラックボールの動きを制御する設定エリア */
+    /* 1. XYを入れ替えるための「変換装置」を定義します（エラー解消用） */
+    xy_transformer: xy_transformer {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <1>;
+    };
+
+    /* 2. トラックボールの動きを受け取って処理します */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         
-        /* ↓ ここで上下と左右（XとY）をガバッと入れ替えます */
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+        /* ↓ ここで上下と左右（XとY）を入れ替えます */
+        input-processors = <&xy_transformer (INPUT_TRANSFORM_XY_SWAP)>;
     };
 };
 
@@ -63,10 +68,10 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* 必須：最新仕様の割り込みピン指定 */
+        /* 最新仕様の割り込みピン指定 */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 基本の軸設定（入れ替えは上の listener で行うので 0 と 1 のままにします） */
+        /* 基本軸（入れ替えは上の listener で行うので標準に戻します） */
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
     };
