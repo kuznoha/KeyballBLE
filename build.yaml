@@ -18,9 +18,9 @@
 #
 ---
 include:
-  - board: xiao_ble//zmk
+  - board: xiao_ble
     shield: KeyballBLE_R
-  - board: xiao_ble//zmk
+  - board: xiao_ble
     shield: KeyballBLE_L
-  - board: xiao_ble//zmk
+  - board: xiao_ble
     shield: settings_reset
