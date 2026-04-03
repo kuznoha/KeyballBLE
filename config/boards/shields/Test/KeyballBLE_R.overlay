@@ -57,16 +57,15 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* * 最新版では irq-gpios や evt-gpios は不要（エラーの原因）です。
-         * motion-gpios に本来の割り込みピン（&gpio0 2）を指定します。
-         */
+        /* 最新版での必須設定（割り込みピン） */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 軸の設定（これも必須） */
+        /* 軸の設定 */
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
-        
-        automouse-layer = <4>;
-        scroll-layers = <5>;
+
+        /* * ※ automouse-layer と scroll-layers は
+         * 最新版の標準設定ではエラーになるため削除しました
+         */
     };
 };
