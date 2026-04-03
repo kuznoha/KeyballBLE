@@ -1,7 +1,6 @@
 #include "KeyballBLE.dtsi"
-/* ↓ 以下の2つのインクルードが必須です */
+/* 入れ替え機能の定義だけを読み込みます */
 #include <dt-bindings/zmk/input_transform.h>
-#include <dt-bindings/zephyr/input.h>
 
 &default_transform {
     col-offset = <7>;
@@ -19,12 +18,12 @@
 };
 
 / {
-    /* 1. 変換装置の定義（ここでX軸とY軸の信号を登録します） */
+    /* 1. 変換装置の定義（外部ファイルに頼らず直接数値を指定します） */
     xy_transformer: xy_transformer {
         compatible = "zmk,input-processor-transform";
         #input-processor-cells = <1>;
-        x-codes = <INPUT_REL_X>;
-        y-codes = <INPUT_REL_Y>;
+        x-codes = <0x00>; /* INPUT_REL_X の意味 */
+        y-codes = <0x01>; /* INPUT_REL_Y の意味 */
     };
 
     /* 2. トラックボールの動きを処理するリスナー */
@@ -32,7 +31,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         
-        /* ↓ ここで XY_SWAP（入れ替え）を適用します */
+        /* ↓ ここで上下と左右（XY）を入れ替えます */
         input-processors = <&xy_transformer (INPUT_TRANSFORM_XY_SWAP)>;
     };
 };
@@ -75,7 +74,7 @@
         /* 必須：最新仕様の割り込みピン指定 */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 基本軸は 0 と 1 に戻し、入れ替えは上の listener で行います */
+        /* 軸の基本設定（入れ替えは上の listener で行うので 0 と 1 に固定します） */
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
     };
