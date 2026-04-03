@@ -1,26 +1,17 @@
 #include "KeyballBLE.dtsi"
 
 &kscan0 {
-    col-gpios
-        = <&xiao_d 10 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 9 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
-        , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
-        , <&gpio0 10 GPIO_ACTIVE_HIGH>
-        , <&gpio0 9 GPIO_ACTIVE_HIGH>
-        ;
+        col-gpios
+            = <&xiao_d 10 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 9 GPIO_ACTIVE_HIGH> 
+            , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
+            , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>
+            , <&gpio0 9 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 4 GPIO_ACTIVE_HIGH> 
+            ;
 };
 
-/* つまみの「運転免許（compatible）」を登録します */
 &left_encoder {
-    compatible = "alps,ec11";
     status = "okay";
-};
-
-/* これが重要：つまみの信号をキーマップに届ける「窓口」を作ります */
-/ {
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder>;
-    };
 };
