@@ -11,15 +11,14 @@
         ;
 };
 
-/* ここから下が「つまみ」を動かすための重要な追記です */
+/* ピン番号の指定を消して、競合を避けます */
 &left_encoder {
     compatible = "alps,ec11";
-    a-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    b-gpios = <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    steps = <80>;
+    /* ここにあった a-gpios と b-gpios を削除しました */
     status = "okay";
 };
 
+/* キーマップと繋ぐための設定だけ残します */
 / {
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
