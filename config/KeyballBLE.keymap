@@ -58,7 +58,7 @@
 &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt_to_layer_0 1 TAB  &lt 2 LEFT_CONTROL  &lt_to_layer_0 3 SPACE      &kp BACKSPACE  &kp RETURN                             &lt 6 LEFT_WIN
             >;
 
-            sensor-bindings = <&ROTATE SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&inc_dec_msc SCRL_UP SCRL_DOWN>;
         };
 
         FUNCTION {
