@@ -57,11 +57,10 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* 1. エラーを消すための必須項目 (以前の irq-gpios の役割) */
+        /* 必須：最新仕様の割り込みピン指定 */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 2. 上下左右の入れ替わりを直す設定 */
-        /* 上下が左右に、左右が上下になっているため、0と1を入れ替えました */
+        /* 方向の修正：上下と左右を入れ替える設定 */
         zephyr,axis-x = <1>; 
         zephyr,axis-y = <0>;
     };
