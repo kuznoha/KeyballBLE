@@ -57,11 +57,12 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* ↓ irq-gpios から evt-gpios に名前を変更しました */
-        evt-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        /* * 最新版では irq-gpios や evt-gpios は不要（エラーの原因）です。
+         * motion-gpios に本来の割り込みピン（&gpio0 2）を指定します。
+         */
+        motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 前回の修正で追加した必須項目 */
-        motion-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        /* 軸の設定（これも必須） */
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
         
