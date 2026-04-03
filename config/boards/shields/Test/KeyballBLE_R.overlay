@@ -58,8 +58,11 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* ↓ここがエラーを消すために絶対に必要です */
+        /* --- ここからがエラーを消すために必要な3行です --- */
         motion-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        zephyr,axis-x = <0>;
+        zephyr,axis-y = <1>;
+        /* ------------------------------------------------ */
         
         automouse-layer = <4>;
         scroll-layers = <5>;
