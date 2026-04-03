@@ -19,8 +19,9 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        /* ↓ 上下の動きだけを反転させる魔法の一行です */
-        y-invert;
+        /* * 注意：'y-invert;' はエラーの原因になるため削除しました。
+         * 方向は、下の 'trackball' ノード内の 'axis' 設定で調整します。
+         */
     };
 };
 
@@ -59,11 +60,12 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* 必須：最新仕様の割り込みピン。エラーを消すために絶対に必要です */
+        /* 必須項目（割り込みピン） */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 方向の修正：上下左右を入れ替える設定 */
-        zephyr,axis-x = <1>; 
-        zephyr,axis-y = <0>;
+        /* 方向の修正：上下だけを逆にするための設定 */
+        /* 上下と左右が入れ替わっているのを戻しつつ、方向を調整します */
+        zephyr,axis-x = <0>; 
+        zephyr,axis-y = <1>;
     };
 };
