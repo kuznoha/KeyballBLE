@@ -31,8 +31,7 @@
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>; // ここはカンマが必要です
-
+            bindings = <&mo>, <&to_layer_0>; 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
@@ -49,8 +48,8 @@
 &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt_to_layer_0 1 TAB  &lt 2 LEFT_CONTROL  &lt_to_layer_0 3 SPACE      &kp BACKSPACE  &kp RETURN                             &lt 6 LEFT_WIN
             >;
 
-            // 標準的なマウススクロールに変更してエラーを回避します
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            // 一旦「PG_UP/DN」にしてビルドを通します
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         FUNCTION {
@@ -60,7 +59,7 @@
 &trans        &kp LC(X)     &kp LC(C)     &kp LC(V)     &trans  &trans      &trans  &trans        &trans  &trans        &trans        &kp F11
 &trans        &trans        &trans        &trans        &trans  &trans      &trans  &trans                                            &kp F12
             >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         NUM {
@@ -70,7 +69,7 @@
 &ext_power EP_ON  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3   &kp PERIOD    &kp EQUAL                    &kp UNDER     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
 &trans            &trans            &kp PRINTSCREEN  &kp INT_MUHENKAN  &trans        &kp INT_KANA                 &trans        &trans                                                                     &kp SLASH
             >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         ARROW {
@@ -80,7 +79,7 @@
 &kp LC(C)   &kp LC(V)       &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans    &trans    &trans        &trans         &trans
 &trans      &trans          &trans          &trans                    &trans   &trans      &trans  &trans                                            &trans
             >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         MOUSE {
@@ -90,7 +89,7 @@
 &trans  &trans  &trans  &trans  &trans  &mkp LCLK      &mkp RCLK  &trans     &trans     &trans     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans     &trans                                      &trans
             >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         SCROLL {
@@ -100,17 +99,11 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &msc MOVE_Y(15)
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         layer_6 {
             bindings = <
 &trans  &trans        &trans        &trans        &trans                                                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans        &trans        &trans        &trans        &trans      &studio_unlock  &trans        &trans        &trans           &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kt KP_N4  &trans      &bootloader     &trans        &trans        &msc MOVE_X(20)  &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans        &trans      &trans          &trans                                                      &bt BT_CLR_ALL
-            >;
-            sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN>;
-        };
-    };
-};
+&trans  &kp
