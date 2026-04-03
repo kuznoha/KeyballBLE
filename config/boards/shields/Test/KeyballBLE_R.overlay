@@ -57,15 +57,12 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* 最新版での必須設定（割り込みピン） */
+        /* 最新版での必須設定：割り込みピンの指定 */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 軸の設定 */
-        zephyr,axis-x = <0>;
-        zephyr,axis-y = <1>;
-
-        /* * ※ automouse-layer と scroll-layers は
-         * 最新版の標準設定ではエラーになるため削除しました
-         */
+        /* 方向の入れ替え修正：XとYの数値を入れ替えました */
+        /* これにより、上下が上下、左右が左右に動くようになります */
+        zephyr,axis-x = <1>; 
+        zephyr,axis-y = <0>;
     };
 };
