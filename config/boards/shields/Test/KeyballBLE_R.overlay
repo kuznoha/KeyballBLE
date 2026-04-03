@@ -57,15 +57,12 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         
-        /* 最新版での必須設定（割り込みピン） */
+        /* 1. エラーを消すための必須項目 (以前の irq-gpios の役割) */
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         
-        /* 軸の設定 */
-        zephyr,axis-x = <0>;
-        zephyr,axis-y = <1>;
-
-        /* * ※ automouse-layer と scroll-layers は
-         * 最新版の標準設定ではエラーになるため削除しました
-         */
+        /* 2. 上下左右の入れ替わりを直す設定 */
+        /* 上下が左右に、左右が上下になっているため、0と1を入れ替えました */
+        zephyr,axis-x = <1>; 
+        zephyr,axis-y = <0>;
     };
 };
