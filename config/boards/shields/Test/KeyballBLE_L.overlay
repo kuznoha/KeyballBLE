@@ -11,12 +11,13 @@
         ;
 };
 
-/* ピン番号を明記せず、親ファイルの設定を活かしつつ「有効化」だけします */
+/* ピン番号は親ファイル（dtsi）に任せ、運転免許（compatible）だけ追加します */
 &left_encoder {
+    compatible = "alps,ec11";
     status = "okay";
 };
 
-/* つまみの動きを「キーマップの命令」に届けるための橋渡しです */
+/* つまみの信号をキーマップに届けるための「窓口」です */
 / {
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
