@@ -11,14 +11,12 @@
         ;
 };
 
-/* ピン番号の指定を消して、競合を避けます */
+/* ピン番号を明記せず、親ファイルの設定を活かしつつ「有効化」だけします */
 &left_encoder {
-    compatible = "alps,ec11";
-    /* ここにあった a-gpios と b-gpios を削除しました */
     status = "okay";
 };
 
-/* キーマップと繋ぐための設定だけ残します */
+/* つまみの動きを「キーマップの命令」に届けるための橋渡しです */
 / {
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
