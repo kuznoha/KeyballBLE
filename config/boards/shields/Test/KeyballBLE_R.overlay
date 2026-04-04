@@ -12,15 +12,21 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
         , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
         , <&gpio0 10 GPIO_ACTIVE_HIGH>
-        , <&gpio0 9 GPIO_ACTIVE_HIGH>  /* ここを gpio0 9 に修正 */
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>  /* gpio0 9 に固定 */
         ;
 };
 
-/* つまみをシステムに登録する新しい書き方 */
+/* つまみの信号をキーマップへ届けるための設定 */
 / {
-    keymap_sensors: keymap_sensors {
+    /* 左側(L)の成功例に合わせ、sensors という名前に統一します */
+    sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&right_encoder>;
+    };
+
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
     };
 };
 
@@ -64,7 +70,7 @@
     };
 };
 
-/* 右側のつまみを有効化 */
+/* 右側のつまみを物理的に有効化 */
 &right_encoder {
     status = "okay";
 };
