@@ -64,7 +64,7 @@
 &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt 1 TAB  &lt 2 DEL  &lt 3 SPACE      &kp BACKSPACE  &kp ENTER                                &kp LEFT_WIN
             >;
 
-            sensor-bindings = <&ROTATE SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&ROTATE SCRL_UP SCRL_DOWN>;
         };
 
         FUNCTION {
