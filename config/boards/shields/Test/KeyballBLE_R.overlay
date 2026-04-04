@@ -65,3 +65,15 @@
         zephyr,axis-y = <0>;
     };
 };
+/* 右側のつまみを有効にします */
+&right_encoder {
+    status = "okay";
+};
+
+/* つまみの信号をキーマップへ届ける窓口です */
+/ {
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&right_encoder>;
+    };
+};
