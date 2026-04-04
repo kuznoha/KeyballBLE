@@ -16,10 +16,9 @@
         ;
 };
 
-/* つまみの信号をキーマップへ届けるための設定 */
+/* つまみの信号を登録する場所を、エラーが出ない形に修正しました */
 / {
-    /* 左側(L)の成功例に合わせ、sensors という名前に統一します */
-    sensors: sensors {
+    keymap_sensors: keymap_sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&right_encoder>;
     };
