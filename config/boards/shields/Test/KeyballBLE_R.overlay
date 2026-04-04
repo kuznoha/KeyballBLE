@@ -1,7 +1,8 @@
 #include "KeyballBLE.dtsi"
 
 &default_transform {
-    col-offset = <7>;
+    /* 7から6に修正：これでPがLになるような横ズレが直ります */
+    col-offset = <6>;
 };
 
 &kscan0 {
@@ -11,7 +12,7 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
         , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
         , <&gpio0 10 GPIO_ACTIVE_HIGH>
-        , <&gpio1 10 GPIO_ACTIVE_HIGH>
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>  /* ←ここを gpio0 9 に修正 */
         ;
 };
 
@@ -19,6 +20,12 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+    };
+
+    /* 右側のつまみをシステムに登録します */
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&right_encoder>;
     };
 };
 
@@ -65,15 +72,8 @@
         zephyr,axis-y = <0>;
     };
 };
+
 /* 右側のつまみを有効にします */
 &right_encoder {
     status = "okay";
-};
-
-/* つまみの信号をキーマップへ届ける窓口です */
-/ {
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&right_encoder>;
-    };
 };
