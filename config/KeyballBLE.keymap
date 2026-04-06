@@ -1,7 +1,7 @@
-
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 16
-/* 以下、既存のコード */
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
