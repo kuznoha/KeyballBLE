@@ -62,3 +62,4 @@ trackball: trackball@0 {
         zephyr,axis-x = <1>;
         zephyr,axis-y = <0>;
     };
+};
