@@ -16,11 +16,19 @@
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 #     artifact-name: corne_left_with_logging
 #
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: "build.yaml"
+
 ---
 include:
-  - board: xiao_ble//zmk
+  - board: seeed_xiao_ble_nrf52840
     shield: KeyballBLE_R
-  - board: xiao_ble//zmk
+  - board: seeed_xiao_ble_nrf52840
     shield: KeyballBLE_L
-  - board: xiao_ble//zmk
+  - board: seeed_xiao_ble_nrf52840
     shield: settings_reset
