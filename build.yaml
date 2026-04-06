@@ -18,7 +18,7 @@
 #
 ---
 include:
-  - board: seeed_xiao_ble
+  - board: xiao_ble//zmk
     shield: KeyballBLE_R
   - board: xiao_ble//zmk
     shield: KeyballBLE_L
