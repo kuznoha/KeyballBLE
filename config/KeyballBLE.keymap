@@ -1,22 +1,19 @@
-/* --- ここから追記 --- */
+/* --- ここから修正 --- */
 &xiao_spi {
     status = "okay";
 };
 
-&trackball {
+&pim447 {
     status = "okay";
     irq-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    /* 左右の動き（X軸）を正しく認識させるための定義 */
-    automouse-layer = <4>; 
+    automouse-layer = <4>;
     scroll-layers = <5>;
-    /* 上下しか動かない場合は、この数値を 0, 90, 180, 270 と変えて試します */
-    orientation = <0>; 
+    orientation = <0>; // 上下しか動かない場合はここを 90, 180, 270 と変えて調整
 };
-/* --- ここまで追記 --- */
+/* --- ここまで修正 --- */
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 16    // default: 10
-/* ... 以下、既存のコード ... */
-
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 16
+/* 以下、既存のコード */
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
