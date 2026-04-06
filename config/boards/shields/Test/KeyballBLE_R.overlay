@@ -19,8 +19,9 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        /* ↓ここでX軸とY軸の入れ替えを行います */
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+        
+        /* XY軸を入れ替えるシンプルな記述 */
+        xy-swap; 
     };
 };
 
