@@ -19,9 +19,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        
-        /* XY軸を入れ替えるシンプルな記述 */
-        xy-swap; 
     };
 };
 
@@ -54,11 +51,14 @@
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
-    trackball: trackball@0 {
+trackball: trackball@0 {
         status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
         motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        
+        /* ↓この2行を復活させます */
+        zephyr,axis-x = <1>;
+        zephyr,axis-y = <0>;
     };
-};
