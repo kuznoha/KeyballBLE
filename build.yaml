@@ -18,9 +18,9 @@
 #
 ---
 include:
-  - board: seeed_xiao_ble_nrf52840
+- board: xiao_ble//zmk
     shield: KeyballBLE_R
-  - board: seeed_xiao_ble_nrf52840
+  - board: xiao_ble//zmk
     shield: KeyballBLE_L
-  - board: seeed_xiao_ble_nrf52840
+  - board: xiao_ble//zmk
     shield: settings_reset
