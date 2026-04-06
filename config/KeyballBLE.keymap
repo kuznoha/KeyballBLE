@@ -1,13 +1,21 @@
+/* --- ここから追記 --- */
+&xiao_spi {
+    status = "okay";
+};
+
+&trackball {
+    status = "okay";
+    irq-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    /* 左右の動き（X軸）を正しく認識させるための定義 */
+    automouse-layer = <4>; 
+    scroll-layers = <5>;
+    /* 上下しか動かない場合は、この数値を 0, 90, 180, 270 と変えて試します */
+    orientation = <0>; 
+};
+/* --- ここまで追記 --- */
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 16    // default: 10
-
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
-
-#define MOUSE 4
-#define SCROLL 5
-#define NUM 6
+/* ... 以下、既存のコード ... */
 
 &mt {
     flavor = "balanced";
