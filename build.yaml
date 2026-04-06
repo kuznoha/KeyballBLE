@@ -16,11 +16,11 @@
 #     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 #     artifact-name: corne_left_with_logging
 #
----
+----
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: KeyballBLE_R
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: KeyballBLE_L
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: settings_reset
