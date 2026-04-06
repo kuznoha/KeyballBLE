@@ -62,6 +62,6 @@
         
         /* もし上下左右が逆なら、ここを 0 と 1 で入れ替えてください */
         zephyr,axis-x = <1>; 
-        zephyr,axis-y = <0>;
+        zephyr,axis-y = <1>;
     };
 };
