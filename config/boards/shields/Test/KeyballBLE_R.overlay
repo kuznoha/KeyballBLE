@@ -61,7 +61,5 @@ trackball: trackball@0 {
         /* ↓この2行を復活させます */
         zephyr,axis-x = <1>;
         zephyr,axis-y = <0>;
-
-        cpi = <1200>;
     };
 };
