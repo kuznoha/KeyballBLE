@@ -60,7 +60,7 @@
 &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &lt 1 TAB  &lt 2 DEL  &lt 3 SPACE      &kp BACKSPACE  &kp ENTER                                &lt 6 LEFT_WIN
             >;
 
-            sensor-bindings = <&ROTATE MOVE_Y(10) MOVE_Y(-10)>;
+            sensor-bindings = <&ROTATE SCRL_UP SCRL_DOWN>;
         };
 
         FUNCTION {
